@@ -15,7 +15,6 @@ import java.util.List;
 
 @Path("/ordini")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 public class OrdiniResource {
 
     @Inject
@@ -35,6 +34,7 @@ public class OrdiniResource {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response crea(NuovoOrdine richiesta) {
         if (richiesta == null || !richiesta.valido()) {
             return Response.status(Response.Status.BAD_REQUEST)
